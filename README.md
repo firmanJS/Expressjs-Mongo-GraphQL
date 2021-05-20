@@ -110,67 +110,68 @@ using swagger check in folder static
 * example graphql
 http://localhost:2000/graphql
 
-* query
-- list
-```nodejs
-{
-  todoList {
-    _id
-    nameTask
-  }
-}   
-```
-- byId
-```nodejs
-{
-  todoById(_id:"60a5d8d914043430a9df3a26"){
-    _id,
-    nameTask
-  }
-} 
-```
-- byParam
-```nodejs
-{
-  todoOne(filter: { nameTask: "task" }, sort: _ID_ASC) {
-   	_id,
-    nameTask
-  }
-}
-```
-- pagination
-```nodejs
-{
-  todoPagination(perPage: 2, page: 1, sort: _ID_ASC) {
-    items {
+* ***Query*** :
+  * **list**
+  ```nodejs
+  {
+    todoList {
+      _id
       nameTask
     }
-    count
-    pageInfo {
-      currentPage
-      perPage
-      itemCount
-      pageCount
-      hasPreviousPage
-      hasNextPage
+  }   
+  ```
+  * **byId**
+  ```nodejs
+  {
+    todoById(_id:"60a5d8d914043430a9df3a26"){
+      _id,
+      nameTask
+    }
+  } 
+  ```
+  * **byParam**
+  ```nodejs
+  {
+    todoOne(filter: { nameTask: "task" }, sort: _ID_ASC) {
+      _id,
+      nameTask
     }
   }
-}
-```
+  ```
+  * **pagination**
+  ```nodejs
+  {
+    todoPagination(perPage: 2, page: 1, sort: _ID_ASC) {
+      items {
+        nameTask
+      }
+      count
+      pageInfo {
+        currentPage
+        perPage
+        itemCount
+        pageCount
+        hasPreviousPage
+        hasNextPage
+      }
+    }
+  }
+  ```
 
-* mutation
-```nodejs
-mutation {
-  todoCreateOne(record: {
-    nameTask: "My Task",
-  }) {
-    recordId
-    record {
-      nameTask
+* ***Mutation*** :
+  * **Create**
+  ```nodejs
+  mutation {
+    todoCreateOne(record: {
+      nameTask: "My Task",
+    }) {
+      recordId
+      record {
+        nameTask
+      }
     }
   }
-}
-```    
+  ```    
 
 ## Project Structure
 ```
