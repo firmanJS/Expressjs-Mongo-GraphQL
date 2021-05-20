@@ -16,10 +16,9 @@ TodoTaskTC.addResolver({
 });
 
 const TodoTaskQuery = {
-  todoById: TodoTaskTC.getResolver('findById'),
-  todoByIds: TodoTaskTC.getResolver('findByIds'),
-  todoOne: TodoTaskTC.getResolver('findOne'),
   todoList: TodoTaskTC.getResolver('findMany'),
+  todoById: TodoTaskTC.getResolver('findById'),
+  todoOne: TodoTaskTC.getResolver('findOne'),
   todoCount: TodoTaskTC.getResolver('count'),
   todoConnection: TodoTaskTC.getResolver('connection'),
   todoPagination: TodoTaskTC.getResolver('pagination'),

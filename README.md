@@ -1,6 +1,6 @@
 # Express  Template Boillerplate RestfullApi
-[![Maintainability](https://api.codeclimate.com/v1/badges/0dc437426c4b1f867461/maintainability)](https://codeclimate.com/github.com/firmanJS/express-monggo-graphql/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/0dc437426c4b1f867461/test_coverage)](https://codeclimate.com/github.com/firmanJS/express-monggo-graphql/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/69f50246beb0c8db1845/maintainability)](https://codeclimate.com/github/firmanJS/express-monggo-graphql/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/69f50246beb0c8db1845/test_coverage)](https://codeclimate.com/github/firmanJS/express-monggo-graphql/test_coverage)
 [![Node.js CI](https://github.com/firmanJS/express-monggo-graphql/actions/workflows/node.js.yml/badge.svg)](https://github.com/firmanJS/express-monggo-graphql/actions/workflows/node.js.yml)
 [![made-with-nodejs](https://img.shields.io/badge/Made%20with-Nodejs-1f425f.svg)](https://nodejs.org)
 [![made-with-expressjs](https://img.shields.io/badge/Made%20with-Expressjs-1f425f.svg)](https://expressjs.com/)
@@ -111,8 +111,35 @@ using swagger check in folder static
 http://localhost:2000/graphql
 
 * query
+- list
+```nodejs
+{
+  todoList {
+    _id
+    nameTask
+  }
+}   
+```
+- byId
+```nodejs
+{
+  todoById(_id:"60a5d8d914043430a9df3a26"){
+    _id,
+    nameTask
+  }
+} 
+```
+- byParam
+```nodejs
+{
+  todoOne(filter: { nameTask: "task" }, sort: _ID_ASC) {
+   	_id,
+    nameTask
+  }
+}
+```
 - pagination
-```json
+```nodejs
 {
   todoPagination(perPage: 2, page: 1, sort: _ID_ASC) {
     items {
@@ -132,7 +159,7 @@ http://localhost:2000/graphql
 ```
 
 * mutation
-```json
+```nodejs
 mutation {
   todoCreateOne(record: {
     nameTask: "My Task",
